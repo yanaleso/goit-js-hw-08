@@ -23,6 +23,10 @@ function onFormSubmit(e) {
 function onFormInput(e) {
     formData[e.target.name] = e.target.value;
     
+    if (!e.target.value) {
+        e.target.value = '';
+    }
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
@@ -34,6 +38,6 @@ function populateFormOutput() {
         formRef.email.value = email;
         formRef.message.value = message;
         formData.email = email;
-    formData.message = message;
+        formData.message = message;
     }
 }
